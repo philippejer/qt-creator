@@ -2,118 +2,61 @@ include(../../qtcreator.pri)
 
 TEMPLATE  = subdirs
 
-#SUBDIRS   = \
-#    autotest \
-#    clangstaticanalyzer \
-#    coreplugin \
-#    qmlprofilerextension \
-#    texteditor \
-#    cppeditor \
-#    bineditor \
-#    diffeditor \
-#    imageviewer \
-#    bookmarks \
-#    projectexplorer \
-#    vcsbase \
-#    perforce \
-#    subversion \
-#    git \
-#    cvs \
-#    cpptools \
-#    qtsupport \
-#    qmakeprojectmanager \
-#    debugger \
-#    help \
-#    cpaster \
-#    cmakeprojectmanager \
-#    autotoolsprojectmanager \
-#    fakevim \
-#    emacskeys \
-#    designer \
-#    resourceeditor \
-#    genericprojectmanager \
-#    qmljseditor \
-#    qmlprojectmanager \
-#    glsleditor \
-#    pythoneditor \
-#    mercurial \
-#    bazaar \
-#    classview \
-#    tasklist \
-#    qmljstools \
-#    macros \
-#    remotelinux \
-#    android \
-#    valgrind \
-#    todo \
-#    qnx \
-#    clearcase \
-#    baremetal \
-#    ios \
-#    beautifier \
-#    modeleditor \
-#    qmakeandroidsupport \
-#    winrt \
-#    qmlprofiler \
-#    updateinfo \
-#    welcome
-
 SUBDIRS   = \
+    autotest \
     clangstaticanalyzer \
     coreplugin \
+    qmlprofilerextension \
     texteditor \
     cppeditor \
     bineditor \
     diffeditor \
+    imageviewer \
+    bookmarks \
     projectexplorer \
     vcsbase \
+    perforce \
+    subversion \
     git \
+    cvs \
     cpptools \
     qtsupport \
     qmakeprojectmanager \
     debugger \
+    help \
+    cpaster \
+    cmakeprojectmanager \
+    autotoolsprojectmanager \
+    fakevim \
+    emacskeys \
+    designer \
+    resourceeditor \
     genericprojectmanager \
+    qmljseditor \
+    qmlprojectmanager \
     glsleditor \
     pythoneditor \
+    mercurial \
+    bazaar \
     classview \
+    tasklist \
+    qmljstools \
+    macros \
+    remotelinux \
     android \
     valgrind \
+    todo \
+    qnx \
+    clearcase \
+    baremetal \
     ios \
     beautifier \
     modeleditor \
     qmakeandroidsupport \
+    winrt \
+    qmlprofiler \
+    updateinfo \
     welcome
-
-#    macros \
-#    help \
-#    autotest \
-#    imageviewer \
-#    bookmarks \
-#    updateinfo \
-#    baremetal \
-#    todo \
-#    resourceeditor \
-#    emacskeys \
-#    cmakeprojectmanager \
-#    autotoolsprojectmanager \
-#    cpaster \
-#    qmljseditor \
-#    qmlprojectmanager \
-#    designer \
-#    remotelinux \
-#    qnx \
-#    fakevim \
-#    perforce \
-#    subversion \
-#    cvs \
-#    winrt \
-#    tasklist \
-#    qmljstools \
-#    clearcase \
-#    qmlprofilerextension \
-#    mercurial \
-#    bazaar \
-#    qmlprofiler \
 
 DO_NOT_BUILD_QMLDESIGNER = $$(DO_NOT_BUILD_QMLDESIGNER)
 isEmpty(DO_NOT_BUILD_QMLDESIGNER) {
