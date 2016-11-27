@@ -174,6 +174,10 @@ void Utils::unCommentSelection(QPlainTextEdit *edit, const CommentDefinition &de
         }
     }
 
+    // Disable multi-line comments globally (built-in languages do not follow highlight definitions!)
+    if (doMultiLineStyleComment && definition.hasSingleLineStyle())
+        doMultiLineStyleComment = false;
+
     if (doMultiLineStyleUncomment) {
         cursor.setPosition(end);
         cursor.movePosition(QTextCursor::PreviousCharacter,

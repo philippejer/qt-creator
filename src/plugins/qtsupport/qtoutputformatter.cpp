@@ -59,7 +59,7 @@ public:
         , qtError(QLatin1String("Object::.*in (.*:\\d+)"))
         , qtAssert(QLatin1String("ASSERT: .* in file (.+, line \\d+)"))
         , qtAssertX(QLatin1String("ASSERT failure in .*: \".*\", file (.+, line \\d+)"))
-        , qtTestFail(QLatin1String("^   Loc: \\[(.*)\\]"))
+        , qtTestFail(QLatin1String("^(?:   Loc: )?\\[([^]]*)\\]")) // make the "   Loc: " thing optional
         , project(proj)
     {
     }

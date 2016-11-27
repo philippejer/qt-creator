@@ -166,6 +166,8 @@ void BaseHoverHandler::decorateToolTip()
 
 void BaseHoverHandler::operateTooltip(TextEditorWidget *editorWidget, const QPoint &point)
 {
+    printf("operateTooltip: m_toolTip=%s\n", m_toolTip.toLatin1().data());
+
     if (m_toolTip.isEmpty())
         Utils::ToolTip::hide();
     else

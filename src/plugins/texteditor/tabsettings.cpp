@@ -317,6 +317,12 @@ void TabSettings::indentLine(QTextBlock block, int newIndent, int padding) const
     const QString text = block.text();
     const int oldBlockLength = text.size();
 
+    // Hack: should find a way to get to the current CommentDefinition from the TextEditor
+    if (text.startsWith(QLatin1String("//")) || text.startsWith(QLatin1Char('#'))) {
+        // Do not indent comment on first column
+        return;
+    }
+
     if (m_continuationAlignBehavior == NoContinuationAlign) {
         newIndent -= padding;
         padding = 0;

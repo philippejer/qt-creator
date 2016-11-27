@@ -4933,6 +4933,8 @@ static bool handleForwardBackwardMouseButtons(QMouseEvent *e)
     return false;
 }
 
+static QString _lastSelection;
+
 void TextEditorWidget::mousePressEvent(QMouseEvent *e)
 {
     if (e->button() == Qt::LeftButton) {
@@ -4980,6 +4982,14 @@ void TextEditorWidget::mousePressEvent(QMouseEvent *e)
                 || eventCursorPosition > textCursor().selectionEnd()) {
             setTextCursor(cursorForPosition(e->pos()));
         }
+    } else if (e->button() == Qt::MiddleButton) {
+        // Paste last selected text with the middle mouse button
+        if ((e->buttons() & Qt::LeftButton) == 0) {
+            setTextCursor(cursorForPosition(e->pos()));
+        }
+        if (!_lastSelection.isEmpty()) {
+            this->insertPlainText(_lastSelection);
+        }
     }
 
     if (HostOsInfo::isLinuxHost() && handleForwardBackwardMouseButtons(e))
@@ -4990,6 +5000,14 @@ void TextEditorWidget::mousePressEvent(QMouseEvent *e)
 
 void TextEditorWidget::mouseReleaseEvent(QMouseEvent *e)
 {
+    if (e->button() == Qt::LeftButton) {
+        // Copy the selected text
+        QString selected = selectedText();
+        if (!selected.isEmpty()) {
+            _lastSelection = selected;
+        }
+    }
+
     if (mouseNavigationEnabled()
             && d->m_linkPressed
             && e->modifiers() & Qt::ControlModifier

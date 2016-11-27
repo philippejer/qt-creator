@@ -59,6 +59,9 @@
 #include <qtsystemexceptionhandler.h>
 #endif
 
+#include <QTime>
+#include <QFileInfo>
+
 using namespace ExtensionSystem;
 
 enum { OptionIndent = 4, DescriptionIndent = 34 };
@@ -297,6 +300,11 @@ static const char *SHARE_PATH =
 
 int main(int argc, char **argv)
 {
+    freopen("qtcreator.log", "w", stdout);
+    setvbuf(stdout, NULL, _IONBF, 0);
+
+    printf("Qt creator started\n");
+
     const char *highDpiEnvironmentVariable = setHighDpiEnvironmentVariable();
 
     QLoggingCategory::setFilterRules(QLatin1String("qtc.*.debug=false"));
@@ -524,5 +532,9 @@ int main(int argc, char **argv)
     // shutdown plugin manager on the exit
     QObject::connect(&app, SIGNAL(aboutToQuit()), &pluginManager, SLOT(shutdown()));
 
+    printf("Entering main loop\n");
+
     return app.exec();
+
+    printf("Qt Creator stopping\n");
 }

@@ -66,10 +66,11 @@ defineReplace(findClangOnWindows) {
 }
 
 win32 {
-    LLVM_INCLUDEPATH = "$$LLVM_INSTALL_DIR/include"
-    LLVM_LIBDIR = $$findClangOnWindows()
+    LLVM_INCLUDEPATH = $$LLVM_INSTALL_DIR/include
+    LLVM_LIBDIR = $$LLVM_INSTALL_DIR/lib #$$findClangOnWindows()
     isEmpty(LLVM_LIBDIR): error("Cannot find clang shared library at $${LLVM_INSTALL_DIR}")
     LLVM_VERSION = $$findLLVMVersionFromLibDir($$LLVM_LIBDIR)
+#    message(LLVM_VERSION: $$LLVM_VERSION)
 
     clang_lib = clang
     !exists("$${LLVM_LIBDIR}/clang.*"): clang_lib = libclang
